@@ -1,12 +1,12 @@
 from dataclasses import dataclass, field
 from typing import Optional
-from data_utils import task_to_keys
+from .data_utils import task_to_keys
 
 import transformers
 
 
 @dataclass
-class DataTrainingArguments:
+class LoraPlusDataTrainingArguments:
     """
     Arguments pertaining to what data we are going to input our model for training and eval.
 
@@ -125,7 +125,7 @@ class DataTrainingArguments:
 
 
 @dataclass
-class ModelArguments:
+class LoraPlusModelArguments:
     """
     Arguments pertaining to which model/config/tokenizer we are going to fine-tune from.
     """
@@ -182,7 +182,7 @@ class ModelArguments:
     )
 
 @dataclass
-class TrainingArguments(transformers.TrainingArguments):
+class LoraPlusTrainingArguments(transformers.TrainingArguments):
     do_train: bool = field(default=True, metadata={"help": "Whether to run training."})
     do_eval: bool = field(
         default=True, metadata={"help": "Whether to run eval on the dev set."}
